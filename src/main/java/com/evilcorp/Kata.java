@@ -1,14 +1,10 @@
 package com.evilcorp;
 
+import java.util.stream.IntStream;
+
 public class Kata {
   public static boolean betterThanAverage(int[] classPoints, int yourPoints) {
-    // Your code here
-    int sumPoints = 0;
-    for (int point : classPoints) {
-      sumPoints += point;
-    }
-    double pointsAvg = (double) sumPoints / classPoints.length;
-
-    return yourPoints > pointsAvg;
+    double avgClassPoint = (double) IntStream.of(classPoints).sum() / classPoints.length;
+    return yourPoints > avgClassPoint;
   }
 }
